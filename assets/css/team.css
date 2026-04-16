@@ -1,0 +1,63 @@
+.top-row h3 {
+    color: #fff;
+}
+
+.content-area {
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+
+}
+
+.team-container {
+    /* background-color: rgb(221 219 180); */
+    padding: 20px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.team-container a {
+    text-decoration: none;
+}
+
+.team-container .card {
+    /* border: 1px solid black; */
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    /* width: auto; */
+    /* height: fit-content; */
+}
+
+.card .right h5,
+.card .right h4 {
+    color: #353535;
+    font-weight: 500;
+}
+
+.card .right .head1 {
+    font-size: .7rem;
+}
+
+.card .right h5.head3 {
+    font-weight: 300;
+    font-size: .7rem;
+    color: #5e5e5e;
+    text-transform: uppercase;
+}
+
+.card .right h5.head4 {
+    font-size: .7rem;
+    font-weight: 300;
+    color: #5e5e5e;
+}
+
+.team-container .card .left img {
+    max-width: 100px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+}

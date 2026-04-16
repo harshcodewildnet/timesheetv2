@@ -1,0 +1,21 @@
+[2026-02-05 17:46:08] Using last month (auto-calculated)
+[2026-02-05 17:46:08] Starting missed timesheets report generation
+[2026-02-05 17:46:08] Date range: 2026-01-01 to 2026-01-31
+[2026-02-05 17:46:08] Filters - Employees: [], Departments: [], RMs: []
+[2026-02-05 17:46:08] Query result: No missed tasks found last month.
+[2026-02-05 17:46:08] Found 0 missed timesheet entries
+[2026-02-05 17:46:08] Completed successfully
+[2026-02-05 21:07:36] Using last month (auto-calculated)
+[2026-02-05 21:07:36] Starting missed timesheets report generation
+[2026-02-05 21:07:36] Date range: 2026-01-01 to 2026-01-31
+[2026-02-05 21:07:36] Filters - Employees: [], Departments: [], RMs: []
+[2026-02-05 21:07:36] Query result: No missed tasks found last month.
+[2026-02-05 21:07:36] Found 0 missed timesheet entries
+[2026-02-05 21:07:36] Completed successfully
+[2026-02-05 21:09:37] Using last month (auto-calculated)
+[2026-02-05 21:09:37] Starting missed timesheets report generation
+[2026-02-05 21:09:37] Date range: 2026-01-01 to 2026-01-31
+[2026-02-05 21:09:37] Filters - Employees: [], Departments: [], RMs: []
+[2026-02-05 21:09:37] Executing query to find missed timesheets...
+[2026-02-05 21:09:38] Found 2446 missed timesheet entries
+[2026-02-05 21:09:39] Completed successfully

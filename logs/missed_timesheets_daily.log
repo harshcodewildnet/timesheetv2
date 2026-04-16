@@ -1,0 +1,226 @@
+[2026-02-23 17:29:17]    Using yesterday (auto-calculated): 2026-02-22
+[2026-02-23 17:29:17]    Filtering by department ID: 5
+
+------------------------------------------------------------
+[2026-02-23 17:29:17] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-02-23 17:29:17]    Target Date : 2026-02-22
+[2026-02-23 17:29:17]    Filters     : Dept IDs: 5
+[2026-02-23 17:29:17]    Running database queries...
+[2026-02-23 17:29:17]    Query result: Missed tasks retrieved.
+[2026-02-23 17:29:17]    Found 15 missed timesheet entries
+[2026-02-23 17:29:17]    Found 0 submitted task entries
+[2026-02-23 17:29:18]    Excel file created for email: /tmp/daily_timesheet_report_2026-02-22_dept_5.xlsx
+[2026-02-23 17:29:18]    Generated email HTML length: 12558
+[2026-02-23 17:29:18]    Email HTML preview (first 200 chars): <!DOCTYPE html> <html> <head>     <style>         body {             font-family: Arial, sans-serif;             color: #333;             line-height: 1.6;         }         .header {       
+[2026-02-23 17:29:18]    Attachment added: /tmp/daily_timesheet_report_2026-02-22_dept_5.xlsx
+[2026-02-23 17:29:20]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-02-23 17:29:20]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-02-23 17:29:20] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-02-23 17:29:20]    Date Range  : 2026-02-22
+[2026-02-23 17:29:20]    Missed      : 15
+[2026-02-23 17:29:20]    Submitted   : 0
+[2026-02-23 17:29:20]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-02-23 17:29:20]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-02-24 14:39:21] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-02-24 14:39:21]    Target Date : 2026-02-23 (Auto-Yesterday)
+[2026-02-24 14:39:21]    Filters     : None
+[2026-02-24 14:39:21]    Running database queries...
+[2026-02-24 14:39:21]    Query result: Missed tasks retrieved.
+[2026-02-24 14:39:21]    Found 38 missed timesheet entries
+[2026-02-24 14:39:21]    Found 0 submitted task entries
+[2026-02-24 14:39:21]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 14:39:21]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 14:39:28]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-02-24 14:39:28]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-02-24 14:39:28] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-02-24 14:39:28]    Date Range  : 2026-02-23
+[2026-02-24 14:39:28]    Missed      : 38
+[2026-02-24 14:39:28]    Submitted   : 0
+[2026-02-24 14:39:28]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-02-24 14:39:28]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-02-24 14:50:08] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-02-24 14:50:08]    Target Date : 2026-02-23 (Auto-Yesterday)
+[2026-02-24 14:50:08]    Filters     : None
+[2026-02-24 14:50:08]    Running database queries...
+[2026-02-24 14:50:08]    Query result: Missed tasks retrieved.
+[2026-02-24 14:50:08]    Found 37 missed timesheet entries
+[2026-02-24 14:50:08]    Found 2 submitted task entries
+[2026-02-24 14:50:08]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 14:50:08]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 14:50:15]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-02-24 14:50:15]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-02-24 14:50:15] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-02-24 14:50:15]    Date Range  : 2026-02-23
+[2026-02-24 14:50:15]    Missed      : 37
+[2026-02-24 14:50:15]    Submitted   : 2
+[2026-02-24 14:50:15]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-02-24 14:50:15]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-02-24 15:06:35] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-02-24 15:06:35]    Target Date : 2026-02-23 (Auto-Yesterday)
+[2026-02-24 15:06:35]    Filters     : None
+[2026-02-24 15:06:35]    Running database queries...
+[2026-02-24 15:06:35]    Query result: Missed tasks retrieved.
+[2026-02-24 15:06:35]    Found 37 missed timesheet entries
+[2026-02-24 15:06:35]    Found 2 submitted task entries
+[2026-02-24 15:06:35]    Found 10 project-wise hour rows
+[2026-02-24 15:06:36]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 15:06:36]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 15:06:43]    Email sent successfully to: ashutosh.sharma@wildnettechnologies.com
+[2026-02-24 15:06:43]    Email logged to database for ashutosh.sharma@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-02-24 15:06:44] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-02-24 15:06:44]    Date Range  : 2026-02-23
+[2026-02-24 15:06:44]    Missed      : 37
+[2026-02-24 15:06:44]    Submitted   : 2
+[2026-02-24 15:06:44]    Recipients  : ashutosh.sharma@wildnettechnologies.com
+[2026-02-24 15:06:44]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-02-24 15:48:25] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-02-24 15:48:25]    Target Date : 2026-02-23 (Auto-Yesterday)
+[2026-02-24 15:48:25]    Filters     : None
+[2026-02-24 15:48:25]    Running database queries...
+[2026-02-24 15:48:25]    Query result: Missed tasks retrieved.
+[2026-02-24 15:48:25]    Found 37 missed timesheet entries
+[2026-02-24 15:48:25]    Found 2 submitted task entries
+[2026-02-24 15:48:25]    Found 12 cumulative hour rows (all-time)
+[2026-02-24 15:48:26]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 15:48:26]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-02-23.xlsx
+[2026-02-24 15:48:32]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-02-24 15:48:32]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-02-24 15:48:32] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-02-24 15:48:32]    Date Range  : 2026-02-23
+[2026-02-24 15:48:32]    Missed      : 37
+[2026-02-24 15:48:32]    Submitted   : 2
+[2026-02-24 15:48:32]    Cumulative  : 12 rows (all-time)
+[2026-02-24 15:48:32]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-02-24 15:48:32]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-03-03 17:23:32] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-03-03 17:23:32]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-03-03 17:23:32]    Target Date : 2026-03-02 (Auto-Yesterday)
+[2026-03-03 17:23:32]    Filters     : None
+[2026-03-03 17:23:32]    Running database queries...
+[2026-03-03 17:23:32]    Query result: Missed tasks retrieved.
+[2026-03-03 17:23:32]    Found 38 missed timesheet entries
+[2026-03-03 17:23:32]    Found 0 submitted task entries
+[2026-03-03 17:23:32]    Found 17 cumulative hour rows (all-time)
+[2026-03-03 17:23:32]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-02.xlsx
+[2026-03-03 17:23:32]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-02.xlsx
+[2026-03-03 17:23:40]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-03-03 17:23:40]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-03-03 17:23:40] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-03-03 17:23:40]    Date Range  : 2026-03-02
+[2026-03-03 17:23:40]    Missed      : 38
+[2026-03-03 17:23:40]    Submitted   : 0
+[2026-03-03 17:23:40]    Cumulative  : 17 rows (all-time)
+[2026-03-03 17:23:40]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-03-03 17:23:40]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-03-03 17:26:07] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-03-03 17:26:07]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-03-03 17:26:07]    Target Date : 2026-03-02 (Auto-Yesterday)
+[2026-03-03 17:26:07]    Filters     : None
+[2026-03-03 17:26:07]    Running database queries...
+[2026-03-03 17:26:07]    Query result: Missed tasks retrieved.
+[2026-03-03 17:26:07]    Found 38 missed timesheet entries
+[2026-03-03 17:26:07]    Found 0 submitted task entries
+[2026-03-03 17:26:07]    Found 17 cumulative hour rows (all-time)
+[2026-03-03 17:26:07]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-02.xlsx
+[2026-03-03 17:26:07]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-02.xlsx
+[2026-03-03 17:26:14]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-03-03 17:26:14]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-03-03 17:26:14] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-03-03 17:26:14]    Date Range  : 2026-03-02
+[2026-03-03 17:26:14]    Missed      : 38
+[2026-03-03 17:26:14]    Submitted   : 0
+[2026-03-03 17:26:14]    Cumulative  : 17 rows (all-time)
+[2026-03-03 17:26:14]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-03-03 17:26:14]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-03-06 10:39:37] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-03-06 10:39:37]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-03-06 10:39:37]    Target Date : 2026-03-05 (Auto-Yesterday)
+[2026-03-06 10:39:37]    Filters     : Department ID: 5 (Cron Default)
+[2026-03-06 10:39:37]    Running database queries...
+[2026-03-06 10:39:37]    Query result: Missed tasks retrieved.
+[2026-03-06 10:39:37]    Found 10 missed timesheet entries
+[2026-03-06 10:39:37]    Found 0 submitted task entries
+[2026-03-06 10:39:37]    Found 5 cumulative hour rows (all-time)
+[2026-03-06 10:39:37]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-05_dept_5.xlsx
+[2026-03-06 10:39:37]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-05_dept_5.xlsx
+[2026-03-06 10:39:44]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-03-06 10:39:44]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-03-06 10:39:44] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-03-06 10:39:44]    Date Range  : 2026-03-05
+[2026-03-06 10:39:44]    Missed      : 10
+[2026-03-06 10:39:44]    Submitted   : 0
+[2026-03-06 10:39:44]    Cumulative  : 5 rows (all-time)
+[2026-03-06 10:39:44]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-03-06 10:39:44]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-03-23 03:05:37] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-03-23 03:05:37]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-03-23 03:05:37]    Target Date : 2026-03-22 (Auto-Yesterday)
+[2026-03-23 03:05:37]    Filters     : Department ID: 5 (Cron Default)
+[2026-03-23 03:05:37]    Running database queries...
+[2026-03-23 03:05:37]    Query result: Missed tasks retrieved.
+[2026-03-23 03:05:37]    Found 10 missed timesheet entries
+[2026-03-23 03:05:37]    Found 0 submitted task entries
+[2026-03-23 03:05:37]    Found 6 cumulative hour rows (all-time)
+[2026-03-23 03:05:44]    Excel file created for email: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-22_dept_5.xlsx
+[2026-03-23 03:05:44]    Attachment added: C:\Users\HARSHD~1\AppData\Local\Temp/daily_timesheet_report_2026-03-22_dept_5.xlsx
+[2026-03-23 03:05:50]    Email sent successfully to: harsh.d@wildnettechnologies.com
+[2026-03-23 03:05:50]    Email logged to database for harsh.d@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-03-23 03:05:50] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-03-23 03:05:50]    Date Range  : 2026-03-22
+[2026-03-23 03:05:50]    Missed      : 10
+[2026-03-23 03:05:50]    Submitted   : 0
+[2026-03-23 03:05:50]    Cumulative  : 6 rows (all-time)
+[2026-03-23 03:05:50]    Recipients  : harsh.d@wildnettechnologies.com
+[2026-03-23 03:05:50]    Status      : COMPLETED SUCCESSFULLY

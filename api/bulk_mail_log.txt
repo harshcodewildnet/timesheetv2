@@ -1,0 +1,100 @@
+[2025-08-25 07:18:32] SUCCESS: Mail sent to admin IT <adminit@wildnet.global>
+[2025-08-25 07:18:37] SUCCESS: Mail sent to admin HR <adminhr@wildnet.global>
+[2025-08-25 07:18:37] Skipped: Waseem Ahmad <waseem@yopmail.com> - Blocked domain (yopmail.com)
+[2025-08-25 07:18:42] SUCCESS: Mail sent to Harsh <harsh.d@wildnettechnologies.com>
+[2025-08-25 07:18:42] Skipped: Archit Sharma <archit.sharma@wildnetedge.com> - Blocked domain (wildnetedge.com)
+[2025-08-25 07:18:42] Skipped: Ashish Waliya <ashish@yopmail.com> - Blocked domain (yopmail.com)
+[2025-08-25 07:18:42] Skipped: Barkha Singh <barkha@yopmail.com> - Blocked domain (yopmail.com)
+[2025-08-25 07:18:42] Skipped: Kumari Nayanpriya <nayanpriya@yopmail.com> - Blocked domain (yopmail.com)
+[2025-08-25 07:24:48] SUCCESS: Mail sent to Waseem Ahmad <waseem@yopmail.com>
+[2025-08-25 07:24:53] SUCCESS: Mail sent to Harsh <harsh.d@wildnettechnologies.com>
+[2025-08-25 07:24:58] SUCCESS: Mail sent to Archit Sharma <archit.sharma@wildnetedge.com>
+[2025-08-25 07:25:03] SUCCESS: Mail sent to Ashish Waliya <ashish@yopmail.com>
+[2025-08-25 07:25:08] SUCCESS: Mail sent to Barkha Singh <barkha@yopmail.com>
+[2025-08-25 07:25:12] SUCCESS: Mail sent to Kumari Nayanpriya <nayanpriya@yopmail.com>
+[2025-08-25 07:34:38] SUCCESS: Mail sent to Waseem Ahmad <waseem@yopmail.com>
+[2025-08-25 07:34:44] SUCCESS: Mail sent to Harsh <harsh.d@wildnettechnologies.com>
+[2025-08-25 07:34:49] SUCCESS: Mail sent to Archit Sharma <archit.sharma@wildnetedge.com>
+[2025-08-25 07:34:54] SUCCESS: Mail sent to Ashish Waliya <ashish@yopmail.com>
+[2025-08-25 07:35:00] SUCCESS: Mail sent to Barkha Singh <barkha@yopmail.com>
+[2025-08-25 07:35:05] SUCCESS: Mail sent to Kumari Nayanpriya <nayanpriya@yopmail.com>
+[2025-08-25 09:03:25] SUCCESS: Mail sent to Harsh <harsh.d@wildnettechnologies.com>
+[2025-08-25 09:03:30] SUCCESS: Mail sent to Archit Sharma <archit.sharma@wildnetedge.com>
+[2025-08-25 09:03:36] SUCCESS: Mail sent to Ashish Waliya <ashish@yopmail.com>
+[2025-08-25 09:03:41] SUCCESS: Mail sent to Barkha Singh <barkha@yopmail.com>
+[2025-08-25 09:03:46] SUCCESS: Mail sent to Kumari Nayanpriya <nayanpriya@yopmail.com>
+[2025-09-18 14:12:01] SUCCESS: Mail sent to Bablu Yadav <babloo.kumar@wildnettechnologies.com>
+[2025-09-19 14:44:19] No employees found in DB.
+[2025-09-24 19:07:26] SUCCESS: Mail sent to User Name <user101@wildnet.global>
+[2025-09-24 19:10:04] SUCCESS: Mail sent to sjdhjh  <admin@wildnet.global>
+[2025-09-29 16:51:15] SUCCESS: Mail sent to Kevin Paulo <kevin@yopmail.com>
+[2025-09-29 19:20:53] SUCCESS: Mail sent to RM New PPC <rm_ppc@yopmail.com>
+[2025-09-29 19:23:08] SUCCESS: Mail sent to New Exe DND <exe_dnd@yopmail.com>
+[2025-09-30 14:11:00] SUCCESS: Mail sent to Aarohi Mishra <aarohi@yopmail.com>
+[2025-09-30 14:18:03] SUCCESS: Mail sent to Akshit Banerjee <akshit@yopmail.com>
+[2025-09-30 14:20:22] SUCCESS: Mail sent to Kunal Kamra <kunal@yopmail.com>
+[2025-10-12 22:37:30] SUCCESS: Mail sent to Margaret Thatcher <margaret@yopmail.com>
+[2025-10-12 23:46:02] SUCCESS: Mail sent to Harsh Kumar <harsh@yopmail.com>
+[2025-10-12 23:49:49] SUCCESS: Mail sent to Harry Potter <harry@yopmail.com>
+[2025-10-12 23:52:45] SUCCESS: Mail sent to Kamal Verma <kamal@yopmail.com>
+[2025-10-12 23:55:02] SUCCESS: Mail sent to Varsha Saini <varsha@yopmail.com>
+[2025-10-13 12:28:46] SUCCESS: Mail sent to Ajay Singh <ajay@yopmail.com>
+[2025-10-14 09:15:36] SUCCESS: Mail sent to Nicole Arondt <nicole@yopmail.com>
+[2025-10-29 07:28:03] SUCCESS: Mail sent to Manan Goswami <manan@yopmail.com>
+[2025-10-29 07:30:12] SUCCESS: Mail sent to Kajal Verma <kajal.verma@yopmail.com>
+[2025-10-29 07:31:35] SUCCESS: Mail sent to Hitesh Kumar <hitesh@yopmail.com>
+[2025-11-04 06:04:29] SUCCESS: Mail sent to HOD IT <hod_it@yopmail.com>
+[2025-11-04 06:18:30] SUCCESS: Mail sent to HOD DND <hod_dnd@yopmail.com>
+[2025-11-04 06:26:13] SUCCESS: Mail sent to Hiroshi Yamamoto <hiroshi@yopmail.com>
+[2025-11-04 06:28:47] SUCCESS: Mail sent to Hikaru Mitsuzaka <hikaru@yopmail.com>
+[2025-11-04 07:31:36] SUCCESS: Mail sent to RM HR OPS <user@wildnet.global>
+[2025-11-04 08:27:41] SUCCESS: Mail sent to HOD IT <hod_it@yopmail.com>
+[2025-11-05 07:28:36] SUCCESS: Mail sent to Akshat Garg <cicada@yopmail.com>
+[2025-11-11 07:03:32] SUCCESS: Mail sent to Pawan Goel <pawan@yopmail.com>
+[2025-11-11 07:06:23] SUCCESS: Mail sent to Kapil Kumar <kapil.kumar@yopmail.com>
+[2025-11-12 10:50:32] SUCCESS: Mail sent to Harsh <harsh@yopmail.com>
+[2025-11-14 06:19:58] SUCCESS: Mail sent to Harsh Kumar <chetan.kumar@wildnetedge.com>
+[2025-11-14 06:39:22] SUCCESS: Mail sent to Jignesh Verma <jignesh.verma@yopmail.com>
+[2026-02-04 06:11:45] SUCCESS: Mail sent to Test Executive <test_executive@yopmail.com>
+[2026-02-04 06:11:49] SUCCESS: Mail sent to Satendra Pal Singh <satendra.singh@wildnettechnologies.com>
+[2026-02-04 06:11:54] SUCCESS: Mail sent to Sandeep Bose <sandeep.bose@wildnettechnologies.com>
+[2026-02-04 06:11:57] SUCCESS: Mail sent to Azat Shatru <azat.shatru@wildnettechnologies.com>
+[2026-02-04 06:12:01] SUCCESS: Mail sent to Chandan Singh <chandan.singh@wildnettechnologies.com>
+[2026-02-04 06:12:05] SUCCESS: Mail sent to Bharat <bharat.singh@wildnettechnologies.com>
+[2026-02-04 06:12:09] SUCCESS: Mail sent to Moin Abbas Khan <moin.khan@wildnettechnologies.com>
+[2026-02-04 06:12:14] SUCCESS: Mail sent to Mayank Sachdeva <mayank.sachdeva@wildnettechnologies.com>
+[2026-02-04 06:12:19] SUCCESS: Mail sent to Shekhar Suman Singh <shekhar.singh@wildnettechnologies.com>
+[2026-02-04 06:12:22] SUCCESS: Mail sent to Utkarsh Aggarwal <utkarsh.aggarwal@wildnettechnologies.com>
+[2026-02-04 06:12:26] SUCCESS: Mail sent to Mohd Sufiyan <md.sufiyan@wildnettechnologies.com>
+[2026-02-04 06:12:30] SUCCESS: Mail sent to Antra Anand <antra.anand@wildnettechnologies.com>
+[2026-02-04 06:12:34] SUCCESS: Mail sent to Shreya Dutta <shreya.dutta@wildnettechnologies.com>
+[2026-02-04 06:12:38] SUCCESS: Mail sent to Himanshu Sharma <himanshu.sharma@wildnettechnologies.com>
+[2026-02-04 06:12:43] SUCCESS: Mail sent to Shweta Bisht <shweta.bisht@wildnettechnologies.com>
+[2026-02-04 06:12:47] SUCCESS: Mail sent to Aditya Prakash <aditya.prakash@wildnettechnologies.com>
+[2026-02-04 06:12:50] SUCCESS: Mail sent to Anshika <anshika.v@wildnettechnologies.com>
+[2026-02-04 06:12:54] SUCCESS: Mail sent to Anuj Kumar <anuj.kumar@wildnettechnologies.com>
+[2026-02-04 06:12:58] SUCCESS: Mail sent to Vipan Kumar <vipan.kumar@wildnettechnologies.com>
+[2026-02-04 06:13:01] SUCCESS: Mail sent to Pradeep Kumar Pandit <pradeep.pandit@wildnettechnologies.com>
+[2026-02-04 06:13:05] SUCCESS: Mail sent to Mayank Tyagi <mayank.tyagi@wildnettechnologies.com>
+[2026-02-04 06:13:10] SUCCESS: Mail sent to Ayush Rai <ayush.rai@wildnettechnologies.com>
+[2026-02-04 06:13:13] SUCCESS: Mail sent to Shreya Gupta <shreya.gupta@wildnettechnologies.com>
+[2026-02-04 06:13:17] SUCCESS: Mail sent to Prerna Madhar <prerna.madhar1@wildnettechnologies.com>
+[2026-02-04 06:13:21] SUCCESS: Mail sent to Khushi Chaudhary <khushi.chaudhary@wildnettechnologies.com>
+[2026-02-04 06:13:24] SUCCESS: Mail sent to Ambesh Kumar <ambesh.kumar@wildnettechnologies.com>
+[2026-02-04 06:13:28] SUCCESS: Mail sent to Riya Kumari <riya.kumari@wildnettechnologies.com>
+[2026-02-04 06:13:33] SUCCESS: Mail sent to Rishi Soni <rishi.soni@wildnettechnologies.com>
+[2026-02-04 06:13:36] SUCCESS: Mail sent to Test Manager <test_manager@wildnet.global>
+[2026-02-10 11:53:00] SUCCESS: Mail sent to Satendra Pal Singh <satendra.singh@wildnettechnologies.com>
+[2026-02-10 11:53:05] SUCCESS: Mail sent to Chandan Singh <chandan.singh@wildnettechnologies.com>
+[2026-02-10 11:53:08] SUCCESS: Mail sent to Mayank Sachdeva <mayank.sachdeva@wildnettechnologies.com>
+[2026-02-10 11:53:29] SUCCESS: Mail sent to Satendra Pal Singh <satendra.singh@wildnettechnologies.com>
+[2026-02-10 11:53:34] SUCCESS: Mail sent to Chandan Singh <chandan.singh@wildnettechnologies.com>
+[2026-02-10 11:53:37] SUCCESS: Mail sent to Mayank Sachdeva <mayank.sachdeva@wildnettechnologies.com>
+[2026-02-10 11:54:00] SUCCESS: Mail sent to Satendra Pal Singh <satendra.singh@wildnettechnologies.com>
+[2026-02-10 11:54:04] SUCCESS: Mail sent to Chandan Singh <chandan.singh@wildnettechnologies.com>
+[2026-02-10 11:54:08] SUCCESS: Mail sent to Mayank Sachdeva <mayank.sachdeva@wildnettechnologies.com>
+[2026-02-11 06:43:33] SUCCESS: Mail sent to Anchal singh <aanchal.singh@wildnettechnologies.com>
+[2026-02-18 10:24:59] SUCCESS: Mail sent to Vidit Kumar <vidit@wildnetedge.com>
+[2026-02-18 11:54:59] SUCCESS: Mail sent to Garima Bisht <garima.bisht@wildnettechnologies.com>
+[2026-02-18 12:44:01] Mail failed to testemp@yopmail.com: SMTP Error: Could not authenticate.
+[2026-02-18 12:59:43] Mail failed to testemployee4@yopmail.com: SMTP Error: Could not authenticate.

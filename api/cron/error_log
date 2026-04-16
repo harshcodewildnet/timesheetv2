@@ -1,0 +1,12 @@
+[05-Feb-2026 10:48:24 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/timesheetwildnet/public_html/api/cron/missed_last_month.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/cron/missed_last_month.php on line 43
+[05-Feb-2026 10:49:51 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/timesheetwildnet/public_html/api/cron/missed_last_month.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/cron/missed_last_month.php on line 43
+[05-Feb-2026 12:14:32 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/timesheetwildnet/public_html/api/cron/missed_last_month.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/cron/missed_last_month.php on line 43

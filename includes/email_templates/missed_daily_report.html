@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .summary-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .summary-box h3 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+
+        .info-row {
+            margin: 8px 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 180px;
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section h3 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section.missed h3 {
+            color: #FF6B6B;
+            border-bottom-color: #FF6B6B;
+        }
+
+        .section.submitted h3 {
+            color: #4CAF50;
+            border-bottom-color: #4CAF50;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .alert {
+            background-color: #e3f2fd;
+            border: 1px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .stats {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .stats.missed {
+            color: #FF6B6B;
+        }
+
+        .stats.submitted {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Daily Timesheet Activity Report</h2>
+    </div>
+
+    <div class="content">
+        <p>Dear Team,</p>
+
+        <p>This is an automated daily timesheet activity report showing both missed entries and submitted tasks. Please
+            find the details below:</p>
+
+        <div class="summary-box">
+            <h3>Report Summary</h3>
+            <div class="info-row">
+                <span class="info-label">Report Date:</span>
+                <span>{{report_date}}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Department Filter:</span>
+                <span>{{department_filter}}</span>
+            </div>
+            <div class="info-row">
+                <span class="stats missed">
+                    <strong>Missed Cases:</strong> {{missed_count}}
+                </span>
+                <span class="stats submitted">
+                    <strong>Submitted Cases:</strong> {{submitted_count}}
+                </span>
+            </div>
+        </div>
+
+        <div class="section missed">
+            <h3>Missed Cases</h3>
+            {{missed_table}}
+        </div>
+
+        <div class="section submitted">
+            <h3>Submitted Cases</h3>
+            {{submitted_summary}}
+        </div>
+
+        {{cumulative_table}}
+
+
+        <div class="alert">
+            <strong>Detailed Excel Report Attached</strong><br>
+            A comprehensive Excel report with <strong>three sheets</strong> has been attached:<br>
+            &bull; <strong>Sheet 1</strong> &ndash; Missed Timesheet Entries<br>
+            &bull; <strong>Sheet 2</strong> &ndash; Submitted Tasks<br>
+            &bull; <strong>Sheet 3</strong> &ndash; Cumulative Hours by Client / Project (all-time per employee)
+        </div>
+
+        <p>Please review the missed entries and take appropriate action to ensure timesheets are submitted promptly.</p>
+
+        <p>
+            Best Regards,<br>
+            HR Team<br>
+            Wildnet Technologies Ltd.
+        </p>
+
+        <div class="footer">
+            <p>This is an automated email from the Timesheet Management System.</p>
+            <p>Generated on: {{timestamp}}</p>
+            <p style="color: #999; font-size: 11px;">If you have questions, please contact the HR or IT department.</p>
+        </div>
+    </div>
+</body>
+
+</html>

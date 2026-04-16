@@ -1,0 +1,59 @@
+[01-Feb-2026 19:34:36 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/timesheetwildnet/public_html/config/config.php on line 12
+[01-Feb-2026 19:36:31 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'timesheetwildnet_user'@'192.169.178.48' (using password: YES) in /home/timesheetwildnet/public_html/config/config.php on line 12
+[01-Feb-2026 19:36:35 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'timesheetwildnet_user'@'192.169.178.48' (using password: YES) in /home/timesheetwildnet/public_html/config/config.php on line 12
+[01-Feb-2026 19:55:00 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home/timesheetwildnet/public_html/classes/Task.php:944
+Stack trace:
+#0 /home/timesheetwildnet/public_html/classes/Task.php(944): mysqli_stmt->bind_param('ii', '1824', 10, 0)
+#1 /home/timesheetwildnet/public_html/classes/Task.php(414): Task->getSpecialTasks(Array, Array, Array, Array, '', '', '', Array, 1, 10)
+#2 /home/timesheetwildnet/public_html/api/filter-tasks.php(29): Task->getFilteredTasks(Array, Array, Array, Array, '', '', '', Array, 1, 10, 'special')
+#3 {main}
+  thrown in /home/timesheetwildnet/public_html/classes/Task.php on line 944
+[05-Feb-2026 06:16:21 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home/timesheetwildnet/public_html/classes/Task.php:944
+Stack trace:
+#0 /home/timesheetwildnet/public_html/classes/Task.php(944): mysqli_stmt->bind_param('ii', '1700', 10, 0)
+#1 /home/timesheetwildnet/public_html/classes/Task.php(414): Task->getSpecialTasks(Array, Array, Array, Array, '', '', '', Array, 1, 10)
+#2 /home/timesheetwildnet/public_html/api/filter-tasks.php(29): Task->getFilteredTasks(Array, Array, Array, Array, '', '', '', Array, 1, 10, 'special')
+#3 {main}
+  thrown in /home/timesheetwildnet/public_html/classes/Task.php on line 944
+[10-Feb-2026 14:27:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function sendAccountEmail() in /home/timesheetwildnet/public_html/api/employee.php:170
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/employee.php on line 170
+[18-Feb-2026 11:31:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function sendAccountEmail() in /home/timesheetwildnet/public_html/api/employee.php:170
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/employee.php on line 170
+[18-Feb-2026 11:31:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function sendAccountEmail() in /home/timesheetwildnet/public_html/api/employee.php:170
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/employee.php on line 170
+[18-Feb-2026 11:46:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function sendAccountEmail() in /home/timesheetwildnet/public_html/api/employee.php:170
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/employee.php on line 170
+[18-Feb-2026 12:06:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function sendAccountEmail() in /home/timesheetwildnet/public_html/api/employee.php:185
+Stack trace:
+#0 {main}
+  thrown in /home/timesheetwildnet/public_html/api/employee.php on line 185
+[18-Feb-2026 12:23:13 UTC] CRITICAL: Required function 'sendAccountEmail' not defined after loading utilities.php
+[18-Feb-2026 12:24:02 UTC] CRITICAL: Required function 'sendAccountEmail' not defined after loading utilities.php
+[18-Feb-2026 12:28:37 UTC] CRITICAL: Missing functions after loading utilities.php: sendAccountEmail (Path: /home/timesheetwildnet/public_html/api/../includes/utilities.php)
+[18-Feb-2026 12:31:37 UTC] CRITICAL: Missing functions after loading utilities.php: sendAccountEmail (Path: /home/timesheetwildnet/public_html/api/../includes/utilities.php)
+[18-Feb-2026 12:37:15 UTC] CRITICAL: Missing functions: sendAccountEmail (Path: /home/timesheetwildnet/public_html/api/../includes/utilities.php)
+[18-Feb-2026 12:44:01 UTC] PHP Fatal error:  Uncaught Exception: Failed to send email to testemp@yopmail.com : SMTP Error: Could not authenticate. in /home/timesheetwildnet/public_html/includes/utilities.php:85
+Stack trace:
+#0 /home/timesheetwildnet/public_html/api/employee.php(185): sendAccountEmail('testemp@yopmail...', 'Test Employee I...', 'Test@6876xh')
+#1 {main}
+  thrown in /home/timesheetwildnet/public_html/includes/utilities.php on line 85
+[18-Feb-2026 12:59:43 UTC] PHP Fatal error:  Uncaught Exception: Failed to send email to testemployee4@yopmail.com : SMTP Error: Could not authenticate. in /home/timesheetwildnet/public_html/includes/utilities.php:85
+Stack trace:
+#0 /home/timesheetwildnet/public_html/api/employee.php(187): sendAccountEmail('testemployee4@y...', 'Test Emp IV', 'Test@kbYxET')
+#1 {main}
+  thrown in /home/timesheetwildnet/public_html/includes/utilities.php on line 85
+[19-Feb-2026 05:32:38 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home/timesheetwildnet/public_html/classes/Task.php:944
+Stack trace:
+#0 /home/timesheetwildnet/public_html/classes/Task.php(944): mysqli_stmt->bind_param('ii', '5', 10, 0)
+#1 /home/timesheetwildnet/public_html/classes/Task.php(414): Task->getSpecialTasks(Array, Array, Array, Array, '', '', '', Array, 1, 10)
+#2 /home/timesheetwildnet/public_html/api/filter-tasks.php(29): Task->getFilteredTasks(Array, Array, Array, Array, '', '', '', Array, 1, 10, 'special')
+#3 {main}
+  thrown in /home/timesheetwildnet/public_html/classes/Task.php on line 944
