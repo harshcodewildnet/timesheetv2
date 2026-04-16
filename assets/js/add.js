@@ -1,11 +1,29 @@
 
 const empId = loggedUserId;
 const restrictedTypes = ['Leave', 'Week Off', 'Public Holiday', 'Half-Day Leave'];
-const minDate = getDateString(10); // 2 days ago
+const minDate = getDateString(10); // 10 days ago
 const maxDate = getDateString(0); // today
 
+// ── Project list (loaded once from API) ──────────────────────────
+let employeeProjects = [];
 
-document.addEventListener('DOMContentLoaded', function () {
+async function loadEmployeeProjects() {
+    try {
+        const res  = await fetch('api/project.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'get_active_projects' })
+        });
+        const json = await res.json();
+        if (json.success) employeeProjects = json.projects;
+    } catch(e) {
+        console.warn('Could not load projects:', e);
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', async function () {
+    await loadEmployeeProjects(); // Phase 6 — load project list
     const addButton = document.querySelector('#add-btn');
     const submitButton = document.querySelector('#submit-btn');
     const tableBody = document.querySelector('#addtablebody');
@@ -56,6 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <option value="04:00">04:00</option>
                             </select>
 
+                        </td>
+                        <td>
+                            <select name="emp-project">
+                                ${getEmployeeProjectsOptions()}
+                            </select>
                         </td>
                         <td>
                             <select name="emp-client">
@@ -141,8 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const taskCategoryText = taskCategorySelect.options[taskCategorySelect.selectedIndex]?.text || '';
             const taskBrief = row.querySelector('select[name="task-brief"]');
             const taskBriefId = taskBrief.value;
+            const projectSelect = row.querySelector('select[name="emp-project"]');
+            const projectId = projectSelect ? projectSelect.value : '';
             const clientSelect = row.querySelector('select[name="emp-client"]');
-            const clientId = clientSelect.value;
+            const clientId = clientSelect ? clientSelect.value : '';
             const taskBriefText = taskBrief.options[taskBrief.selectedIndex]?.text || '';
             const taskDescriptionEl = row.querySelector('textarea[name="description"]');
             const taskDescription = taskDescriptionEl.value.trim();
@@ -158,9 +183,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Project/Client is mandatory for Working entries
-            if (!isRestrictedType && !clientId) {
-                showToast(`Please select a Project / Client for each Working entry.`, true);
-                clientSelect.focus();
+            if (!isRestrictedType && !clientId && !projectId) {
+                showToast(`Please select a Project or Client for each Working entry.`, true);
+                clientSelect?.focus();
                 hasError = true;
                 return;
             }
@@ -231,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 taskBriefId,
                 taskBriefText,
                 taskDescription,
+                projectId: projectId || null,
                 clientId,
                 timeTaken,
                 status
@@ -451,6 +477,7 @@ function handleInlineEdit(row) {
             cat_id: categorySelect.value,
             brief_id: briefSelect.value,
             description: row.querySelector('textarea[name="description"]').value,
+            projectId: row.querySelector('select[name="emp-project"]')?.value || null,
             clientId: row.querySelector('select[name="emp-client"]').value,
             // change here
             duration: row.querySelector('select[name="time"]').value,
@@ -659,6 +686,18 @@ function getTaskCategoryOptions() {
         options += `<option value="${category.cat_id}">${category.cat_name}</option>`;
     });
     // console.log("getTaskCategoriesOptions Called");
+    return options;
+}
+
+function getEmployeeProjectsOptions() {
+    let options = '';
+    const isProject = (typeof deptId !== 'undefined' && parseInt(deptId) === 5);
+    const label = isProject ? 'Project' : 'Project / Client';
+    options += `<option value="" disabled selected>Select ${label}</option>`;
+    options += `<option value="-1" disabled hidden>-</option>`;
+    employeeProjects.forEach(p => {
+        options += `<option value="${p.project_id}">${p.project_name} (${p.client_name || ''})</option>`;
+    });
     return options;
 }
 

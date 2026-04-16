@@ -27,6 +27,9 @@
             <a href="manage-client" class="tab">
                 <i class="fa-solid fa-user"></i> <span>Manage Client / Project</span>
             </a>
+            <a href="manage-projects" class="tab">
+                <i class="fa-solid fa-diagram-project"></i> <span>Manage Projects</span>
+            </a>
             <a href="calendar" class="tab">
                 <i class="fa-solid fa-calendar-days"></i> <span>Calendar</span>
             </a>

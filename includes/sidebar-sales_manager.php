@@ -3,7 +3,7 @@
         <div class="nav-tabs">
             <button id="sidebar-toggle-btn" title="Toggle Sidebar"><i class="fa-solid fa-chevron-left"></i></button>
             <div class="sidebar-logo">
-                <a href="dashboard-hod">
+                <a href="dashboard-sm">
                     <img src="assets/images/wnet-image.png" class="full-logo" alt="WildNet logo">
                     <img src="assets/images/wnet-logo.png" class="collapsed-logo" alt="WildNet logo">
                 </a>
@@ -16,22 +16,16 @@
             </div>
             <div class="profile-head">
                 <h4><?= $employee['name'] ?></h4>
-                <h5>Emp Id: <?= $employee['emp_id'] ?></h5>
+                <small>Sales Manager</small>
             </div>
-            <a href="dashboard-hod" class="tab">
+            <a href="dashboard-sm" class="tab">
                 <i class="fa-solid fa-house"></i> <span>Dashboard</span>
             </a>
-            <a href="manage-user" class="tab">
-                <i class="fa-solid fa-user"></i> <span>Manage User</span>
+            <a href="manage-projects" class="tab">
+                <i class="fa-solid fa-diagram-project"></i> <span>Manage Projects</span>
             </a>
             <a href="manage-client" class="tab">
-                <i class="fa-solid fa-user"></i> <span>Manage Client / Project</span>
-            </a>
-            <a href="manage-projects" class="tab">
-                <i class="fa-solid fa-diagram-project"></i> <span>Projects</span>
-            </a>
-            <a href="team" class="tab">
-                <i class="fa-solid fa-user"></i> <span>My Team</span>
+                <i class="fa-solid fa-building"></i> <span>Clients</span>
             </a>
             <a href="profile" class="tab">
                 <i class="fa-solid fa-user"></i> <span>My Profile</span>

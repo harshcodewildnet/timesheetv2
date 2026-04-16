@@ -62,6 +62,12 @@ if ($result->num_rows >= 1) {
             case 'executive':
                 header('Location: ../dashboard-executive');
                 break;
+            case 'sales_manager':
+                header('Location: ../dashboard-sm');
+                break;
+            case 'project_manager':
+                header('Location: ../dashboard-pm');
+                break;
             default:
                 echo "Invalid role.";
         }

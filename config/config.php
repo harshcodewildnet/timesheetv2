@@ -7,7 +7,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$db = 'timesheetsite4de_timesheet';
+$db = 'timesheet_v2';
 
 $conn = new mysqli($host, $user, $password, $db);
 if ($conn->connect_error) {

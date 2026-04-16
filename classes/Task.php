@@ -1289,19 +1289,23 @@ class Task
 
     public function addTask($task)
     {
-        $stmt = $this->conn->prepare('INSERT INTO task (emp_id, worktype, cat_id , subcat_id, client_id , description, date, duration, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $stmt = $this->conn->prepare('INSERT INTO task (emp_id, worktype, cat_id, subcat_id, client_id, project_id, description, date, duration, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
         if (!$stmt) {
             return ['success' => false, 'error' => $this->conn->error];
         }
 
+        $projectId   = isset($task['project_id']) && $task['project_id'] ? (int)$task['project_id'] : null;
+        $description = $task['task_description'] ?? $task['description'] ?? null;
+
         $stmt->bind_param(
-            'isiissssi',
+            'isiisisssi',
             $task['emp_id'],
             $task['work_type'],
             $task['task_category'],
             $task['task_subcategory'],
             $task['client_id'],
-            $task['task_description'],
+            $projectId,
+            $description,
             $task['date'],
             $task['time_taken'],
             $task['status']
@@ -1317,8 +1321,8 @@ class Task
     public function updateTask($task)
     {
         $stmt = $this->conn->prepare('
-        UPDATE task 
-        SET worktype = ?, cat_id = ?, subcat_id = ?, client_id = ?, description = ?, date = ?, duration = ?, status = ?
+        UPDATE task
+        SET worktype = ?, cat_id = ?, subcat_id = ?, client_id = ?, project_id = ?, description = ?, date = ?, duration = ?, status = ?
         WHERE task_id = ? AND emp_id = ?
     ');
 
@@ -1326,13 +1330,16 @@ class Task
             return ['success' => false, 'error' => $this->conn->error];
         }
 
+        $projectId = isset($task['project_id']) ? (int)$task['project_id'] : null;
+
         $stmt->bind_param(
-            'siissssiii',
+            'siisiisssii',
             $task['work_type'],
             $task['task_category'],
             $task['task_subcategory'],
             $task['client_id'],
-            $task['task_description'],
+            $projectId,
+            $task['task_description'] ?? $task['description'] ?? null,
             $task['date'],
             $task['time_taken'],
             $task['status'],

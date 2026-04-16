@@ -2,6 +2,7 @@
 session_start();
 require_once '../config/config.php';
 require_once '../classes/Task.php';
+require_once '../classes/Project.php';
 
 header('Content-Type: application/json');
 
@@ -25,19 +26,29 @@ switch ($data['action']) {
         }
 
         $allInserted = true;
+        $projectObj  = new Project($conn);
 
         foreach ($tasks as $task) {
-            $clientId = (isset($task['clientId']) && $task['clientId'] !== '' && $task['clientId'] !== '-1') ? $task['clientId'] : null;
+            $projectId = isset($task['projectId']) && $task['projectId'] !== '' ? (int)$task['projectId'] : null;
+            $clientId  = (isset($task['clientId']) && $task['clientId'] !== '' && $task['clientId'] !== '-1') ? $task['clientId'] : null;
+
+            // Auto-derive client_id from project if not sent directly
+            if ($projectId && !$clientId) {
+                $proj = $projectObj->getProjectById($projectId);
+                if ($proj) $clientId = $proj['client_id'];
+            }
+
             $result = $taskObj->addTask([
-                'emp_id' => $emp_id,
-                'work_type' => $task['workType'],
-                'task_category' => $task['taskCategoryId'],
-                'task_subcategory' => $task['taskBriefId'],
-                'task_description' => $task['taskDescription'] ?? null,
-                'client_id' => $clientId,
-                'date' => $task['date'],
-                'time_taken' => $task['timeTaken'],
-                'status' => 0
+                'emp_id'          => $emp_id,
+                'work_type'       => $task['workType'],
+                'task_category'   => $task['taskCategoryId'],
+                'task_subcategory'=> $task['taskBriefId'],
+                'task_description'=> $task['taskDescription'] ?? null,
+                'client_id'       => $clientId,
+                'project_id'      => $projectId,
+                'date'            => $task['date'],
+                'time_taken'      => $task['timeTaken'],
+                'status'          => 0
             ]);
 
             if (!$result['success']) {
@@ -57,18 +68,28 @@ switch ($data['action']) {
             exit;
         }
 
-        $clientId = (isset($task['clientId']) && $task['clientId'] !== '' && $task['clientId'] !== '-1') ? $task['clientId'] : null;
+        $projectId = isset($task['projectId']) && $task['projectId'] !== '' ? (int)$task['projectId'] : null;
+        $clientId  = (isset($task['clientId']) && $task['clientId'] !== '' && $task['clientId'] !== '-1') ? $task['clientId'] : null;
+
+        // Auto-derive client_id from project
+        if ($projectId && !$clientId) {
+            $pObj = new Project($conn);
+            $proj = $pObj->getProjectById($projectId);
+            if ($proj) $clientId = $proj['client_id'];
+        }
+
         $result = $taskObj->updateTask([
-            'emp_id' => $emp_id,
-            'task_id' => $task['task_id'],
-            'work_type' => $task['worktype'],
-            'task_category' => $task['cat_id'],
-            'task_subcategory' => $task['brief_id'],
-            'task_description' => $task['description'] ?? null,
-            'client_id' => $clientId,
-            'date' => $task['date'],
-            'time_taken' => $task['duration'],
-            'status' => 0
+            'emp_id'          => $emp_id,
+            'task_id'         => $task['task_id'],
+            'work_type'       => $task['worktype'],
+            'task_category'   => $task['cat_id'],
+            'task_subcategory'=> $task['brief_id'],
+            'task_description'=> $task['description'] ?? null,
+            'client_id'       => $clientId,
+            'project_id'      => $projectId,
+            'date'            => $task['date'],
+            'time_taken'      => $task['duration'],
+            'status'          => 0
         ]);
         if (!$result['success']) {
             $_SESSION['success'] = false;
