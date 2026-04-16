@@ -1298,7 +1298,7 @@ class Task
         $description = $task['task_description'] ?? $task['description'] ?? null;
 
         $stmt->bind_param(
-            'isiisisssi',
+            'isiiissssi',
             $task['emp_id'],
             $task['work_type'],
             $task['task_category'],
@@ -1333,7 +1333,7 @@ class Task
         $projectId = isset($task['project_id']) ? (int)$task['project_id'] : null;
 
         $stmt->bind_param(
-            'siisiisssii',
+            'siisisssiii',
             $task['work_type'],
             $task['task_category'],
             $task['task_subcategory'],
