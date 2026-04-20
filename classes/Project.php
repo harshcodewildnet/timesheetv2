@@ -455,6 +455,7 @@ class Project
         ");
         $stmt->bind_param('i', $projectId);
         $stmt->execute();
+        $total = 0;
         $stmt->bind_result($total);
         $stmt->fetch();
         $stmt->close();
@@ -474,6 +475,7 @@ class Project
         ");
         $stmt->bind_param('ii', $projectId, $empId);
         $stmt->execute();
+        $total = 0;
         $stmt->bind_result($total);
         $stmt->fetch();
         $stmt->close();
@@ -495,6 +497,7 @@ class Project
         ");
         $stmt->bind_param('is', $projectId, $month);
         $stmt->execute();
+        $total = 0;
         $stmt->bind_result($total);
         $stmt->fetch();
         $stmt->close();
@@ -636,6 +639,7 @@ class Project
         $stmt = $this->conn->prepare("SELECT COALESCE(SUM(allocated_hours), 0) FROM project_member WHERE project_id = ?");
         $stmt->bind_param('i', $projectId);
         $stmt->execute();
+        $total = 0;
         $stmt->bind_result($total);
         $stmt->fetch();
         $stmt->close();
