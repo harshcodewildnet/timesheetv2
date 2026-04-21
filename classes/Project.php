@@ -321,13 +321,15 @@ class Project
         }
         $chk->close();
 
-        // Check for over-budget warning (Fixed Cost projects only)
-        $warningOverBudget = false;
+        // Check for over-budget (Fixed Cost projects only) — Hard Block
         $project = $this->getProjectById($projectId);
         if ($project && $project['project_type'] === 'fixed_cost' && $project['total_estimated_hours']) {
             $currentAllocated = $this->getTotalAllocatedHours($projectId);
-            if (($currentAllocated + $allocatedHours) > $project['total_estimated_hours']) {
-                $warningOverBudget = true;
+            if (($currentAllocated + $allocatedHours) > (float)$project['total_estimated_hours']) {
+                return [
+                    'success' => false, 
+                    'message' => "Cannot assign: Total allocation would reach " . ($currentAllocated + $allocatedHours) . " hrs, exceeding the project budget of " . $project['total_estimated_hours'] . " hrs."
+                ];
             }
         }
 
@@ -345,7 +347,7 @@ class Project
             return ['success' => false, 'message' => 'Failed to add member: ' . $stmt->error];
         }
         $stmt->close();
-        return ['success' => true, 'warning_over_budget' => $warningOverBudget];
+        return ['success' => true];
     }
 
     // =========================================================
@@ -353,6 +355,30 @@ class Project
     // =========================================================
     public function updateProjectMember(int $id, array $data): array
     {
+        // If updating allocated_hours, check against project budget (Fixed Cost only)
+        if (isset($data['allocated_hours'])) {
+            $stmtM = $this->conn->prepare("SELECT project_id, allocated_hours FROM project_member WHERE id = ?");
+            $stmtM->bind_param('i', $id);
+            $stmtM->execute();
+            $member = $stmtM->get_result()->fetch_assoc();
+            $stmtM->close();
+
+            if ($member) {
+                $pid = (int)$member['project_id'];
+                $project = $this->getProjectById($pid);
+                if ($project && $project['project_type'] === 'fixed_cost' && $project['total_estimated_hours']) {
+                    $otherAllocated = $this->getTotalAllocatedHours($pid) - (float)$member['allocated_hours'];
+                    $newTotal = $otherAllocated + (float)$data['allocated_hours'];
+                    if ($newTotal > (float)$project['total_estimated_hours']) {
+                        return [
+                            'success' => false,
+                            'message' => "Cannot update: Total allocation would reach " . $newTotal . " hrs, exceeding budget of " . $project['total_estimated_hours'] . " hrs."
+                        ];
+                    }
+                }
+            }
+        }
+
         $allowlist = ['allocated_hours', 'role_in_project', 'is_active'];
         $setClauses = [];
         $params     = [];
@@ -534,12 +560,16 @@ class Project
             $label = $this->classifyTM($pct);
         }
 
+        $totalAllocated = $this->getTotalAllocatedHours($projectId);
+
         return [
             'classification'  => $label,
             'utilization_pct' => $pct,
             'actual_hours'    => $actual,
             'budget_hours'    => $budget,
             'remaining_hours' => round($budget - $actual, 2),
+            'total_allocated_hours' => $totalAllocated,
+            'remaining_allocation'  => round($budget - $totalAllocated, 2),
             'project_type'    => $type
         ];
     }

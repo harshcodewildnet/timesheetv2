@@ -75,9 +75,93 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
         .hours-bar-bg      { background: #e0e0e0; border-radius: 6px; height: 8px; overflow: hidden; margin-top: 3px; }
         .hours-bar-fill    { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
         .fill-ok           { background: #4caf50; }
-        .fill-warn         { background: #ff9800; }
-        .fill-over         { background: #f44336; }
-        .hours-bar-text    { font-size: 0.72rem; color: #666; }
+        .hours-bar-fill.fill-warn { background-color: #f9a825; }
+        .hours-bar-fill.fill-over { background-color: #c62828; }
+
+        /* ── Modern Filter UI ── */
+        .tab-panel .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #edf2f7;
+        }
+        .search-bar-wrapper {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+        .search-bar-wrapper i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 12px 10px 36px !important;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+            background-color: #f7fafc;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #FEAD17;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(254, 173, 23, 0.1);
+        }
+        .filter-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .filter-select {
+            padding: 9px 32px 9px 12px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #4a5568;
+            background: #f7fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%234a5568' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") no-repeat right 12px center;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .filter-select:hover { border-color: #cbd5e0; }
+        .filter-select:focus {
+            outline: none;
+            border-color: #FEAD17;
+            box-shadow: 0 0 0 3px rgba(254, 173, 23, 0.1);
+        }
+
+        .add-btn {
+            background-color: #FEAD17;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(254, 173, 23, 0.2);
+        }
+        .add-btn:hover {
+            background-color: #e69a15;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(254, 173, 23, 0.3);
+        }
+        .add-btn:active { transform: translateY(0); }
 
         /* ── Member table ── */
         .member-status-over     { color: #c62828; font-weight: 600; }
@@ -114,6 +198,68 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
         }
         .summary-card .val { font-size: 1.6rem; font-weight: 700; }
         .summary-card .lbl { font-size: 0.78rem; color: #888; margin-top: 3px; }
+
+        /* ── Active Project Highlight ── */
+        .active-project-row {
+            background-color: rgba(254, 173, 23, 0.12) !important;
+            border-left: 4px solid #FEAD17 !important;
+            box-shadow: inset 0 0 10px rgba(254, 173, 23, 0.05);
+            transition: all 0.3s ease;
+        }
+        .active-project-row td {
+            font-weight: 500;
+        }
+        .active-project-row td strong {
+            color: #FEAD17;
+        }
+
+        /* ── Error Animations & Highlights ── */
+        .input-error {
+            border: 1.5px solid #c62828 !important;
+            background-color: #fff8f8 !important;
+        }
+        .error-banner {
+            background-color: #fce4e4;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            animation: fadeInError 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        @keyframes fadeInError {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Centered Modal ── */
+        .modal-dialog {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-dialog.show { display: flex; }
+        .modal {
+            background: #fff !important;
+            border-radius: 12px !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+            overflow: hidden;
+            border: none !important;
+            animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -139,26 +285,27 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
             <div class="tab-content">
                 <div class="tab-panel active" id="tab-projects">
 
-                    <!-- Top bar: search + add button -->
+                    <!-- Top bar: search + filters + add button -->
                     <div class="top-row">
-                        <div class="search-bar">
+                        <div class="search-bar-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                             <input type="text" id="project-search" class="search-input" placeholder="Search projects by name, client or type…">
                         </div>
-                        <div style="display:flex;gap:10px;align-items:center;">
-                            <select id="filter-type" class="form-control" style="width:180px;">
+                        <div class="filter-controls">
+                            <select id="filter-type" class="filter-select" style="width:180px;">
                                 <option value="">All Types</option>
                                 <option value="fixed_cost">Fixed Cost</option>
                                 <option value="time_material">Time &amp; Material</option>
                                 <option value="staff_augmentation">Staff Augmentation</option>
                             </select>
-                            <select id="filter-status" class="form-control" style="width:130px;">
+                            <select id="filter-status" class="filter-select" style="width:130px;">
                                 <option value="">All Status</option>
                                 <option value="1">Active</option>
                                 <option value="0">Inactive</option>
                             </select>
                             <?php if (in_array($emp_role, ['admin', 'sales_manager'])): ?>
                             <button class="add-btn" id="add-project-btn">
-                                <i class="fa-solid fa-plus-circle"></i> Add Project
+                                <i class="fa-solid fa-plus"></i> Add Project
                             </button>
                             <?php endif; ?>
                         </div>
@@ -405,13 +552,45 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
                     <div class="form-group">
                         <label for="f-member-hours">Allocated Hours</label>
                         <input type="number" id="f-member-hours" class="editable" placeholder="e.g. 40" min="1" step="0.5">
+                        <div id="allocation-hint" style="font-size:0.8rem; color:#666; margin-top:5px; font-weight:500;"></div>
                     </div>
                 </div>
+
+                <!-- Error Banner positioned just above actions -->
+                <div id="member-error-msg" class="error-banner" style="display:none;"></div>
+
                 <div class="row bottom-row" style="margin-top:14px;">
-                    <button type="submit" class="save-profile-btn" id="save-member-btn">Assign Member</button>
+                    <button type="submit" class="save-profile-btn" id="save-member-btn">Confirm Assignment</button>
                     <button type="button" class="cancel-btn" id="cancel-member-modal">Cancel</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     CONFIRM DELETE MODAL
+     ══════════════════════════════════════════════════════════ -->
+<div class="modal-dialog" id="modal-member-delete">
+    <div class="modal" style="max-width:400px;">
+        <div class="modal-header">
+            <h4 class="modal-title">Remove Team Member</h4>
+            <button class="close-btn" onclick="closeModal('member-delete')"><i class="fa-solid fa-circle-xmark"></i></button>
+        </div>
+        <hr>
+        <div class="modal-body" style="text-align:center; padding: 30px 24px;">
+            <div style="margin-bottom: 20px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 3.8rem; color: #FEAD17;"></i>
+            </div>
+            <h3 style="margin-bottom: 12px; font-weight: 700; color: #333;">Are you sure?</h3>
+            <p style="color: #666; font-size: 1rem; margin-bottom: 30px; line-height: 1.5;">This action will remove the member from the project. <br>This cannot be undone.</p>
+            
+            <div style="display:flex; gap:16px; justify-content:center;">
+                <button type="button" class="add-btn" id="confirm-member-remove" 
+                    style="flex: 1; justify-content: center; padding: 12px;">Remove</button>
+                <button type="button" class="cancel-btn" onclick="closeModal('member-delete')" 
+                    style="flex: 1; justify-content: center; padding: 12px; border-radius: 8px;">Cancel</button>
+            </div>
         </div>
     </div>
 </div>
@@ -438,8 +617,9 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
 // ─────────────────────────────────────────────────────────────────
 const userRole = '<?= $emp_role ?>';
 const canManage = ['admin','sales_manager','project_manager'].includes(userRole);
+let currentProjectReport = null; // Store report for budget checks in UI
 
-function showToast(msg, isError = false) {
+function triggerNotification(msg, isError = false) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.style.backgroundColor = isError ? '#ef828c' : '#5eda7b';
@@ -488,11 +668,11 @@ async function loadProjects() {
             body: JSON.stringify({ action: 'list', ...activeFilters })
         });
         const json = await res.json();
-        if (!json.success) { showToast(json.message || 'Failed to load projects.', true); return; }
+        if (!json.success) { triggerNotification(json.message || 'Failed to load projects.', true); return; }
 
         renderProjectTable(json.projects);
     } catch(e) {
-        showToast('Network error.', true);
+        triggerNotification('Network error.', true);
     } finally {
         hideSpinner();
     }
@@ -526,8 +706,10 @@ function renderProjectTable(projects) {
             : `<i class="fa-solid fa-eye project-members-btn" data-id="${p.project_id}"
                   data-name="${p.project_name}" title="View"></i>`;
 
+        const isActiveClass = (currentDetailProjectId === p.project_id) ? 'active-project-row' : '';
+
         return `
-        <tr data-id="${p.project_id}">
+        <tr data-id="${p.project_id}" class="${isActiveClass}">
             <td>${i + 1}.</td>
             <td><strong>${p.project_name}</strong></td>
             <td>${p.client_name || '—'}</td>
@@ -571,7 +753,7 @@ function attachTableEvents() {
                 body: JSON.stringify({ action: 'toggle_status', project_id: id, status })
             });
             const json = await res.json();
-            showToast(json.success ? (status ? 'Project activated.' : 'Project deactivated.') : (json.message || 'Failed.'), !json.success);
+            triggerNotification(json.success ? (status ? 'Project activated.' : 'Project deactivated.') : (json.message || 'Failed.'), !json.success);
         });
     });
 }
@@ -638,7 +820,7 @@ async function openEditProjectModal(projectId) {
             body: JSON.stringify({ action: 'get', project_id: projectId })
         });
         const json = await res.json();
-        if (!json.success) { showToast(json.message || 'Failed.', true); return; }
+        if (!json.success) { triggerNotification(json.message || 'Failed.', true); return; }
 
         const p = json.project;
         document.getElementById('project-modal-title').textContent = 'Edit Project';
@@ -697,13 +879,13 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
         const json = await res.json();
         if (json.success) {
             closeModal('project');
-            showToast(isEdit ? 'Project updated!' : 'Project created!');
+            triggerNotification(isEdit ? 'Project updated!' : 'Project created!');
             loadProjects();
         } else {
-            showToast(json.message || 'Failed to save project.', true);
+            triggerNotification(json.message || 'Failed to save project.', true);
         }
     } catch(err) {
-        showToast('Network error.', true);
+        triggerNotification('Network error.', true);
     } finally {
         hideSpinner();
     }
@@ -719,6 +901,11 @@ async function openDetailPanel(projectId, projectName) {
     document.getElementById('detail-project-name').textContent = projectName;
     document.getElementById('member-project-id').value = projectId;
 
+    // Remove highlight from all rows and add to current
+    document.querySelectorAll('#project-table-body tr').forEach(row => {
+        row.classList.toggle('active-project-row', parseInt(row.dataset.id) === projectId);
+    });
+
     const panel = document.getElementById('project-detail-panel');
     panel.classList.add('visible');
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -729,6 +916,10 @@ async function openDetailPanel(projectId, projectName) {
 function closeDetailPanel() {
     document.getElementById('project-detail-panel').classList.remove('visible');
     currentDetailProjectId = null;
+    // Clear highlight from all rows
+    document.querySelectorAll('#project-table-body tr').forEach(row => {
+        row.classList.remove('active-project-row');
+    });
 }
 
 async function loadProjectDetail(projectId) {
@@ -756,6 +947,7 @@ async function loadProjectDetail(projectId) {
 }
 
 function renderDetailSummary(report) {
+    currentProjectReport = report;
     const cards = document.getElementById('detail-summary-cards');
     const bar   = document.getElementById('detail-hours-bar');
 
@@ -804,7 +996,7 @@ function renderMemberTable(members) {
         const actionsCell = canManage
             ? `<td class="actions">
                  <i class="fa-solid fa-pencil member-edit-btn" data-id="${m.member_row_id}"
-                    data-hours="${m.allocated_hours}" data-role="${m.role_in_project||''}"></i>
+                    data-emp="${m.emp_id}" data-hours="${m.allocated_hours}" data-role="${m.role_in_project||''}"></i>
                  <i class="fa-solid fa-trash-can member-remove-btn"
                     data-project="${currentDetailProjectId}" data-emp="${m.emp_id}"></i>
                </td>`
@@ -822,13 +1014,52 @@ function renderMemberTable(members) {
         </tr>`;
     }).join('');
 
-    // Attach remove events
-    document.querySelectorAll('.member-remove-btn').forEach(btn => {
-        btn.addEventListener('click', async () => {
-            if (!confirm('Remove this member from the project?')) return;
-            await removeMember(parseInt(btn.dataset.project), parseInt(btn.dataset.emp));
+    // Attach edit events
+    document.querySelectorAll('.member-edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('member-form').reset();
+            const errDiv = document.getElementById('member-error-msg');
+            errDiv.style.display = 'none';
+            document.getElementById('f-member-hours').classList.remove('input-error');
+
+            document.getElementById('member-row-id').value = btn.dataset.id;
+            document.getElementById('f-member-emp').value   = btn.dataset.emp;
+            document.getElementById('f-member-emp').setAttribute('disabled', 'disabled'); // Lock emp during edit
+            document.getElementById('f-member-hours').value = btn.dataset.hours;
+            document.getElementById('f-member-role').value  = btn.dataset.role;
+
+            // Show allocation hint
+            const hint = document.getElementById('allocation-hint');
+            if (currentProjectReport && currentProjectReport.project_type === 'fixed_cost') {
+                const available = (currentProjectReport.remaining_allocation || 0) + parseFloat(btn.dataset.hours || 0);
+                hint.innerHTML = `<i class="fa-solid fa-info-circle"></i> Max ${available.toFixed(2)} hrs available for this member.`;
+                hint.style.color = "#FEAD17";
+            } else {
+                hint.textContent = '';
+            }
+
+            openModal('member');
         });
     });
+
+    // Attach remove events
+    let pendingRemoval = null;
+    document.querySelectorAll('.member-remove-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            pendingRemoval = { 
+                projectId: parseInt(btn.dataset.project), 
+                empId: parseInt(btn.dataset.emp) 
+            };
+            openModal('member-delete');
+        });
+    });
+
+    document.getElementById('confirm-member-remove').onclick = async () => {
+        if (!pendingRemoval) return;
+        closeModal('member-delete');
+        await removeMember(pendingRemoval.projectId, pendingRemoval.empId);
+        pendingRemoval = null;
+    };
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -836,8 +1067,22 @@ function renderMemberTable(members) {
 // ─────────────────────────────────────────────────────────────────
 document.getElementById('add-member-btn')?.addEventListener('click', () => {
     document.getElementById('member-form').reset();
+    document.getElementById('member-error-msg').style.display = 'none';
+    document.getElementById('f-member-hours').classList.remove('input-error');
+    document.getElementById('f-member-emp').removeAttribute('disabled'); // Ensure emp can be selected for new add
     document.getElementById('member-row-id').value = '';
     document.getElementById('member-project-id').value = currentDetailProjectId;
+
+    // Show allocation hint for new member
+    const hint = document.getElementById('allocation-hint');
+    if (currentProjectReport && currentProjectReport.project_type === 'fixed_cost') {
+        const available = (currentProjectReport.remaining_allocation || 0);
+        hint.innerHTML = `<i class="fa-solid fa-info-circle"></i> ${available.toFixed(2)} hrs remaining to allocate in this project.`;
+        hint.style.color = available > 0 ? "#2e7d32" : "#c62828";
+    } else {
+        hint.textContent = '';
+    }
+
     openModal('member');
 });
 document.getElementById('close-member-modal').addEventListener('click', () => closeModal('member'));
@@ -847,30 +1092,50 @@ document.getElementById('member-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     showSpinner();
     const projectId = parseInt(document.getElementById('member-project-id').value);
+    const memberId  = document.getElementById('member-row-id').value;
     const empId     = parseInt(document.getElementById('f-member-emp').value);
     const role      = document.getElementById('f-member-role').value.trim();
     const hours     = parseFloat(document.getElementById('f-member-hours').value) || null;
 
-    if (!empId) { showToast('Please select an employee.', true); hideSpinner(); return; }
+    if (!memberId && !empId) { triggerNotification('Please select an employee.', true); hideSpinner(); return; }
+
+    const isEdit = !!memberId;
+    const action = isEdit ? 'edit_member' : 'add_member';
+    const payload = isEdit 
+        ? { action, member_row_id: memberId, role_in_project: role, allocated_hours: hours }
+        : { action, project_id: projectId, emp_id: empId, role_in_project: role, allocated_hours: hours };
 
     try {
         const res  = await fetch('api/project.php', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'add_member', project_id: projectId, emp_id: empId,
-                                   role_in_project: role, allocated_hours: hours })
+            body: JSON.stringify(payload)
         });
         const json = await res.json();
+        const errDiv = document.getElementById('member-error-msg');
+        const hoursInput = document.getElementById('f-member-hours');
+
         if (json.success) {
+            errDiv.style.display = 'none';
+            hoursInput.classList.remove('input-error');
             closeModal('member');
-            showToast('Member assigned!');
-            if (json.warning_over_budget) {
-                showToast('⚠️ Warning: Total allocation now exceeds project budget!', true);
-            }
+            triggerNotification(isEdit ? 'Member updated!' : 'Member assigned!');
             await loadProjectDetail(projectId);
         } else {
-            showToast(json.message || 'Failed.', true);
+            console.error("Budget Validation Error:", json.message);
+            errDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> <span>${json.message || 'Failed.'}</span>`;
+            errDiv.style.display = 'flex';
+            hoursInput.classList.add('input-error');
         }
     } finally { hideSpinner(); }
+});
+
+// Clear error state when user changes the hours
+document.getElementById('f-member-hours').addEventListener('input', function() {
+    this.classList.remove('input-error');
+    const errDiv = document.getElementById('member-error-msg');
+    if (errDiv.style.display !== 'none') {
+        errDiv.style.display = 'none';
+    }
 });
 
 async function removeMember(projectId, empId) {
@@ -881,7 +1146,7 @@ async function removeMember(projectId, empId) {
             body: JSON.stringify({ action: 'remove_member', project_id: projectId, emp_id: empId })
         });
         const json = await res.json();
-        showToast(json.success ? 'Member removed.' : (json.message || 'Failed.'), !json.success);
+        triggerNotification(json.success ? 'Member removed.' : (json.message || 'Failed.'), !json.success);
         if (json.success) await loadProjectDetail(projectId);
     } finally { hideSpinner(); }
 }
@@ -916,7 +1181,7 @@ document.addEventListener('DOMContentLoaded', loadProjects);
 
 <?php if (!empty($_SESSION['message'])): ?>
 <script>
-    showToast('<?= $_SESSION['message'] ?>', <?= !$_SESSION['success'] ? 'true' : 'false' ?>);
+    triggerNotification('<?= $_SESSION['message'] ?>', <?= !$_SESSION['success'] ? 'true' : 'false' ?>);
 </script>
 <?php unset($_SESSION['message'], $_SESSION['success']); endif; ?>
 </body>
