@@ -14,7 +14,8 @@ if (!isset($data['action'])) {
 }
 
 $taskObj = new Task($conn);
-$emp_id = $_SESSION['emp_id'] ?? null;
+$emp_id  = $_SESSION['emp_id']   ?? null;
+$role    = $_SESSION['emp_role'] ?? 'executive';
 
 switch ($data['action']) {
     case 'add':
@@ -48,7 +49,8 @@ switch ($data['action']) {
                 'project_id'      => $projectId,
                 'date'            => $task['date'],
                 'time_taken'      => $task['timeTaken'],
-                'status'          => 0
+                'status'          => 0,
+                'user_role'       => $role
             ]);
 
             if (!$result['success']) {
@@ -89,7 +91,8 @@ switch ($data['action']) {
             'project_id'      => $projectId,
             'date'            => $task['date'],
             'time_taken'      => $task['duration'],
-            'status'          => 0
+            'status'          => 0,
+            'user_role'       => $role
         ]);
         if (!$result['success']) {
             $_SESSION['success'] = false;
@@ -110,7 +113,7 @@ switch ($data['action']) {
             exit;
         }
 
-        $result = $taskObj->deleteTask($empId, $taskId);
+        $result = $taskObj->deleteTask($empId, $taskId, $role);
         $_SESSION['success'] = true;
         $_SESSION['message'] = 'Task Deleted Successfully!';
         echo json_encode(['success' => $result['success']]);

@@ -9,6 +9,23 @@ class Task
         $this->conn = $conn;
     }
 
+    private function getLockDate(): string
+    {
+        $res = $this->conn->query("SELECT setting_value FROM settings WHERE setting_key = 'timesheet_lock_date'");
+        if ($res && $row = $res->fetch_assoc()) {
+            return $row['setting_value'];
+        }
+        return '1970-01-01'; // Default far in past
+    }
+
+    private function isLocked(string $date, string $role): bool
+    {
+        if ($role === 'admin') return false;
+        
+        $lockDate = $this->getLockDate();
+        return (strtotime($date) <= strtotime($lockDate));
+    }
+
     public function getEmployeeTasks($id)
     {
         $stmt = $this->conn->prepare("SELECT t.*, tc.cat_name, tc.cat_id, tsc.subcat_id, tsc.brief FROM task t left join task_category tc on t.cat_id = tc.cat_id left join task_subcategory tsc on t.subcat_id = tsc.subcat_id WHERE emp_id = ? order by t.date desc");
@@ -1289,6 +1306,11 @@ class Task
 
     public function addTask($task)
     {
+        $role = $task['user_role'] ?? 'executive';
+        if ($this->isLocked($task['date'], $role)) {
+            return ['success' => false, 'error' => 'This period is locked. Cannot add task for ' . $task['date']];
+        }
+
         $stmt = $this->conn->prepare('INSERT INTO task (emp_id, worktype, cat_id, subcat_id, client_id, project_id, description, date, duration, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
         if (!$stmt) {
             return ['success' => false, 'error' => $this->conn->error];
@@ -1298,7 +1320,7 @@ class Task
         $description = $task['task_description'] ?? $task['description'] ?? null;
 
         $stmt->bind_param(
-            'isiiissssi',
+            'isiisisssi',
             $task['emp_id'],
             $task['work_type'],
             $task['task_category'],
@@ -1320,6 +1342,11 @@ class Task
 
     public function updateTask($task)
     {
+        $role = $task['user_role'] ?? 'executive';
+        if ($this->isLocked($task['date'], $role)) {
+            return ['success' => false, 'error' => 'This period is locked. Cannot edit task for ' . $task['date']];
+        }
+
         $stmt = $this->conn->prepare('
         UPDATE task
         SET worktype = ?, cat_id = ?, subcat_id = ?, client_id = ?, project_id = ?, description = ?, date = ?, duration = ?, status = ?
@@ -1377,8 +1404,19 @@ class Task
         return true;
     }
 
-    public function deleteTask($emp_id, $task_id)
+    public function deleteTask($emp_id, $task_id, $role = 'executive')
     {
+        // For delete, we need to find the task date first
+        $stmtDate = $this->conn->prepare("SELECT date FROM task WHERE task_id = ?");
+        $stmtDate->bind_param('i', $task_id);
+        $stmtDate->execute();
+        $res = $stmtDate->get_result()->fetch_assoc();
+        $stmtDate->close();
+
+        if ($res && $this->isLocked($res['date'], $role)) {
+            return ['success' => false, 'error' => 'This period is locked. Cannot delete task for ' . $res['date']];
+        }
+
         $stmt = $this->conn->prepare('DELETE FROM task WHERE task_id = ? AND emp_id = ?');
 
         if (!$stmt) {

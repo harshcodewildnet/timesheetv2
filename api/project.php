@@ -137,13 +137,14 @@ switch ($action) {
         $memberEmpId    = (int) ($data['emp_id'] ?? 0);
         $allocatedHours = isset($data['allocated_hours']) ? (float) $data['allocated_hours'] : null;
         $roleInProject  = $data['role_in_project'] ?? null;
+        $assignedAt     = $data['assigned_at'] ?? null;
 
         if (!$projectId || !$memberEmpId) {
             echo json_encode(['success' => false, 'message' => 'project_id and emp_id are required.']);
             exit;
         }
 
-        $result = $projectObj->addProjectMember($projectId, $memberEmpId, $allocatedHours, $roleInProject);
+        $result = $projectObj->addProjectMember($projectId, $memberEmpId, $allocatedHours, $roleInProject, $assignedAt);
         echo json_encode($result);
         break;
 

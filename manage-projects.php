@@ -162,6 +162,47 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
             box-shadow: 0 6px 8px -1px rgba(254, 173, 23, 0.3);
         }
         .add-btn:active { transform: translateY(0); }
+        
+        /* ── Bulk Admin Buttons ── */
+        .bulk-btn {
+            background-color: #4a5568;
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .bulk-btn:hover {
+            background-color: #2d3748;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 85, 104, 0.2);
+        }
+        .sample-btn {
+            background-color: #edf2f7;
+            color: #4a5568;
+            border: 1.5px solid #e2e8f0;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .sample-btn:hover {
+            background-color: #e2e8f0;
+            color: #2d3748;
+            border-color: #cbd5e0;
+        }
+        .sample-btn i { font-size: 0.9rem; }
 
         /* ── Member table ── */
         .member-status-over     { color: #c62828; font-weight: 600; }
@@ -307,6 +348,17 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
                             <button class="add-btn" id="add-project-btn">
                                 <i class="fa-solid fa-plus"></i> Add Project
                             </button>
+                            <?php endif; ?>
+                            <?php if ($emp_role === 'admin'): ?>
+                            <div class="admin-actions-group" style="display: flex; align-items: center; gap: 10px; margin-left: 10px; padding-left: 10px; border-left: 1.5px solid #e2e8f0;">
+                                <button class="bulk-btn" id="bulk-upload-btn" title="Bulk Task Upload">
+                                    <i class="fa-solid fa-file-csv"></i> Bulk Upload
+                                </button>
+                                <a href="assets/samples/bulk_task_sample.csv" download class="sample-btn" title="Download CSV Template">
+                                    <i class="fa-solid fa-download"></i> Sample
+                                </a>
+                                <input type="file" id="bulk-task-input" accept=".csv" style="display:none;">
+                            </div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -484,9 +536,8 @@ $allEmployees = $membersQuery ? $membersQuery->fetch_all(MYSQLI_ASSOC) : [];
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label for="f-end-date">Project End Date <sup>*</sup></label>
+                            <label for="f-end-date">Project End Date</label>
                             <input type="date" id="f-end-date" class="editable">
-                            <small class="error" style="color:red;display:none;">End date required for Fixed Cost projects.</small>
                         </div>
                     </div>
                 </div>
@@ -780,7 +831,6 @@ function updateDynamicFields() {
     if (type === 'fixed_cost') {
         secFixed.classList.add('visible');
         totalHours.setAttribute('required', 'required');
-        endDate.setAttribute('required', 'required');
     } else if (type === 'time_material') {
         secMonthly.classList.add('visible');
         monthLabel.textContent = 'Time & Material Details';
@@ -1169,6 +1219,51 @@ document.getElementById('project-search').addEventListener('input', function() {
         row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
     });
 });
+
+// ─────────────────────────────────────────────────────────────────
+// BULK TASK UPLOAD (Admin only)
+// ─────────────────────────────────────────────────────────────────
+if (userRole === 'admin') {
+    const bulkBtn = document.getElementById('bulk-upload-btn');
+    const bulkInput = document.getElementById('bulk-task-input');
+
+    bulkBtn?.addEventListener('click', () => bulkInput.click());
+
+    bulkInput?.addEventListener('change', async function() {
+        if (!this.files || this.files.length === 0) return;
+        
+        const file = this.files[0];
+        if (file.type !== 'text/csv' && !file.name.endsWith('.csv')) {
+            triggerNotification('Please upload a valid CSV file.', true);
+            this.value = '';
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('csv_file', file);
+
+        showSpinner();
+        try {
+            const res = await fetch('api/bulk-task-upload.php', {
+                method: 'POST',
+                body: formData
+            });
+            const json = await res.json();
+            
+            if (json.success) {
+                triggerNotification(`Success! ${json.inserted_count} tasks imported.`);
+                loadProjects(); // Refresh table
+            } else {
+                triggerNotification(json.message || 'Upload failed.', true);
+            }
+        } catch (e) {
+            triggerNotification('Network error during upload.', true);
+        } finally {
+            hideSpinner();
+            this.value = ''; // Reset input
+        }
+    });
+}
 
 // ─────────────────────────────────────────────────────────────────
 // INIT

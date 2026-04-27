@@ -34,9 +34,12 @@ class Project
         }
 
         $type = $data['project_type'];
-        if ($type === 'fixed_cost' && empty($data['total_estimated_hours'])) {
-            return ['success' => false, 'message' => 'Total Estimated Hours is required for Fixed Cost projects.'];
+        if ($type === 'fixed_cost') {
+            if (empty($data['total_estimated_hours'])) {
+                return ['success' => false, 'message' => 'Total Estimated Hours is required for Fixed Cost projects.'];
+            }
         }
+        
         if (in_array($type, ['time_material', 'staff_augmentation']) && empty($data['monthly_allocated_hours'])) {
             return ['success' => false, 'message' => 'Monthly Allocated Hours is required for T&M / Staff Augmentation projects.'];
         }
@@ -226,6 +229,11 @@ class Project
         $projects = $result->fetch_all(MYSQLI_ASSOC);
         $stmt->close();
 
+        // Attach live performance data to each project
+        foreach ($projects as &$p) {
+            $p['performance'] = $this->getProjectPerformance((int) $p['project_id']);
+        }
+
         $totalResult = $this->conn->query('SELECT FOUND_ROWS() AS total');
         $total       = $totalResult ? (int) $totalResult->fetch_assoc()['total'] : 0;
 
@@ -308,7 +316,7 @@ class Project
     // =========================================================
     // 9. addProjectMember($projectId, $empId, $allocatedHours, $role)
     // =========================================================
-    public function addProjectMember(int $projectId, int $empId, ?float $allocatedHours, ?string $role): array
+    public function addProjectMember(int $projectId, int $empId, ?float $allocatedHours, ?string $role, ?string $assignedAt = null): array
     {
         // Check employee exists + is active
         $chk = $this->conn->prepare("SELECT emp_id FROM employee WHERE emp_id = ? AND status = 1");
@@ -333,12 +341,12 @@ class Project
             }
         }
 
-        $today = date('Y-m-d');
+        $assignmentDate = !empty($assignedAt) ? $assignedAt : date('Y-m-d');
         $stmt = $this->conn->prepare("
             INSERT INTO project_member (project_id, emp_id, allocated_hours, role_in_project, assigned_at)
             VALUES (?, ?, ?, ?, ?)
         ");
-        $stmt->bind_param('iidss', $projectId, $empId, $allocatedHours, $role, $today);
+        $stmt->bind_param('iidss', $projectId, $empId, $allocatedHours, $role, $assignmentDate);
 
         if (!$stmt->execute()) {
             if ($this->conn->errno === 1062) {
