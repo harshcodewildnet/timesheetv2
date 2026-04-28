@@ -325,6 +325,10 @@ $cronDefaultDept = 5; // Department ID to report on (cron fallback)
 $cronDefaultManager = 1946; // Manager ID to report on (cron fallback)
 // ─────────────────────────────────────────────────────────────────────────────
 
+// --- Configuration for Individual Reminders ---
+$sendIndividualReminders = true; // Set to false to disable sending individual emails to employees
+// ----------------------------------------------
+
 // Allow specifying a custom date (format: YYYY-MM-DD) or default to yesterday
 $customDate = $_GET['date'] ?? null;
 
@@ -412,6 +416,35 @@ if (!isset($result['status']) || $result['status'] !== 'success') {
 
 $data = $result['tasks'] ?? [];
 logMessage("Found " . count($data) . " missed cases", $logFile);
+
+// --- SEND INDIVIDUAL REMINDERS ---
+if ($sendIndividualReminders && !empty($data)) {
+    logMessage("Sending individual reminder emails to " . count($data) . " employees...", $logFile);
+    $sentCount = 0;
+    $failedCount = 0;
+
+    foreach ($data as $row) {
+        // Map database row to the format expected by mailer.php
+        $empForMailer = [
+            'emp_id'    => $row['emp_id'],
+            'emp_name'  => $row['name'],
+            'emp_email' => $row['email'],
+            'task_date' => $row['date']
+        ];
+
+        try {
+            sendMissingTimesheetEmailToExecutive($empForMailer);
+            $sentCount++;
+            // Small delay to prevent SMTP server overload
+            usleep(200000); // 0.2 seconds
+        } catch (Exception $e) {
+            $failedCount++;
+            logMessage("FAILED: Individual email to " . $row['email'] . " - " . $e->getMessage(), $logFile);
+        }
+    }
+    logMessage("Individual reminders sent: $sentCount | Failed: $failedCount", $logFile);
+}
+// ---------------------------------
 
 // Get submitted tasks for the same date range
 $submittedResult = $task->getSubmittedTasksForDateRange($employees, $departments, $repManagers, $allowedEmployees, $reportStart, $reportEnd);

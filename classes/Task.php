@@ -1866,7 +1866,7 @@ class Task
             LEFT JOIN department dept ON e.dept_id = dept.dept_id
             LEFT JOIN employee rm ON rm.emp_id = e.rm_id
             LEFT JOIN task t ON t.emp_id = e.emp_id AND DATE(t.date) = d.date
-            LEFT JOIN calendar cal ON cal.date = d.date AND (cal.type = 'Public Holiday' OR cal.type = 'Week Off')
+            LEFT JOIN calendar cal ON cal.date = d.date AND (cal.type = 'Public Holiday' OR cal.type = 'Week Off' OR cal.type = 'Floater Leave')
             WHERE t.task_id IS NULL
             AND cal.id IS NULL
             AND e.role NOT IN ('hod', 'admin')

@@ -224,3 +224,87 @@
 [2026-03-23 03:05:50]    Cumulative  : 6 rows (all-time)
 [2026-03-23 03:05:50]    Recipients  : harsh.d@wildnettechnologies.com
 [2026-03-23 03:05:50]    Status      : COMPLETED SUCCESSFULLY
+
+------------------------------------------------------------
+[2026-04-28 13:06:56] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-04-28 13:06:56]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-04-28 13:06:56]    Target Date : 2026-04-27 (Auto-Yesterday)
+[2026-04-28 13:06:56]    Filters     : Department ID: 5 (Cron Default)
+[2026-04-28 13:06:56]    Running database queries...
+[2026-04-28 13:06:56]    Query result: Missed tasks retrieved.
+[2026-04-28 13:06:56]    Found 17 missed cases
+[2026-04-28 13:06:56]    Sending individual reminder emails to 17 employees...
+
+------------------------------------------------------------
+[2026-04-28 13:07:23] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-04-28 13:07:23]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-04-28 13:07:23]    Target Date : 2026-04-27 (Auto-Yesterday)
+[2026-04-28 13:07:23]    Filters     : Department ID: 5 (Cron Default)
+[2026-04-28 13:07:23]    Running database queries...
+[2026-04-28 13:07:23]    Query result: Missed tasks retrieved.
+[2026-04-28 13:07:23]    Found 17 missed cases
+[2026-04-28 13:07:23]    Sending individual reminder emails to 17 employees...
+
+------------------------------------------------------------
+[2026-04-28 13:07:26] STARTING DAILY TIMESHEET REPORT GENERATION
+------------------------------------------------------------
+[2026-04-28 13:07:26]    Run Mode    : Web (apache2handler)  |  Memory Limit: 512M
+[2026-04-28 13:07:26]    Target Date : 2026-04-27 (Auto-Yesterday)
+[2026-04-28 13:07:26]    Filters     : Department ID: 5 (Cron Default)
+[2026-04-28 13:07:26]    Running database queries...
+[2026-04-28 13:07:26]    Query result: Missed tasks retrieved.
+[2026-04-28 13:07:26]    Found 17 missed cases
+[2026-04-28 13:07:26]    Sending individual reminder emails to 17 employees...
+[2026-04-28 13:08:56]    Individual reminders sent: 17 | Failed: 0
+[2026-04-28 13:08:56]    Found 0 submitted cases
+[2026-04-28 13:08:56]    Found 40 cumulative rows (all-time)
+[2026-04-28 13:08:56]    Excel file created for email: C:\Users\SANEAL~1\AppData\Local\Temp/daily_timesheet_report_2026-04-27_dept_5.xlsx
+[2026-04-28 13:08:56]    Attachment added: C:\Users\SANEAL~1\AppData\Local\Temp/daily_timesheet_report_2026-04-27_dept_5.xlsx
+[2026-04-28 13:09:01]    Email sent successfully to: ashutosh.sharma@wildnettechnologies.com
+[2026-04-28 13:09:01]    Email logged to database for ashutosh.sharma@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-04-28 13:09:01] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-04-28 13:09:01]    Date Range  : 2026-04-27
+[2026-04-28 13:09:01]    Missed      : 17
+[2026-04-28 13:09:01]    Submitted   : 0
+[2026-04-28 13:09:01]    Cumulative  : 40 rows (all-time)
+[2026-04-28 13:09:01]    Recipients  : ashutosh.sharma@wildnettechnologies.com
+[2026-04-28 13:09:01]    Status      : COMPLETED SUCCESSFULLY
+[2026-04-28 13:09:21]    Individual reminders sent: 17 | Failed: 0
+[2026-04-28 13:09:21]    Found 0 submitted cases
+[2026-04-28 13:09:21]    Found 40 cumulative rows (all-time)
+[2026-04-28 13:09:21]    Excel file created for email: C:\Users\SANEAL~1\AppData\Local\Temp/daily_timesheet_report_2026-04-27_dept_5.xlsx
+[2026-04-28 13:09:21]    Attachment added: C:\Users\SANEAL~1\AppData\Local\Temp/daily_timesheet_report_2026-04-27_dept_5.xlsx
+[2026-04-28 13:09:25]    Individual reminders sent: 17 | Failed: 0
+[2026-04-28 13:09:25]    Found 0 submitted cases
+[2026-04-28 13:09:25]    Found 40 cumulative rows (all-time)
+[2026-04-28 13:09:25]    Excel file created for email: C:\Users\SANEAL~1\AppData\Local\Temp/daily_timesheet_report_2026-04-27_dept_5.xlsx
+[2026-04-28 13:09:25]    Attachment added: C:\Users\SANEAL~1\AppData\Local\Temp/daily_timesheet_report_2026-04-27_dept_5.xlsx
+[2026-04-28 13:09:26]    Email sent successfully to: ashutosh.sharma@wildnettechnologies.com
+[2026-04-28 13:09:26]    Email logged to database for ashutosh.sharma@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-04-28 13:09:26] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-04-28 13:09:26]    Date Range  : 2026-04-27
+[2026-04-28 13:09:26]    Missed      : 17
+[2026-04-28 13:09:26]    Submitted   : 0
+[2026-04-28 13:09:26]    Cumulative  : 40 rows (all-time)
+[2026-04-28 13:09:26]    Recipients  : ashutosh.sharma@wildnettechnologies.com
+[2026-04-28 13:09:26]    Status      : COMPLETED SUCCESSFULLY
+[2026-04-28 13:09:30]    Email sent successfully to: ashutosh.sharma@wildnettechnologies.com
+[2026-04-28 13:09:30]    Email logged to database for ashutosh.sharma@wildnettechnologies.com (status: sent)
+
+------------------------------------------------------------
+[2026-04-28 13:09:30] EXECUTION SUMMARY
+------------------------------------------------------------
+[2026-04-28 13:09:30]    Date Range  : 2026-04-27
+[2026-04-28 13:09:30]    Missed      : 17
+[2026-04-28 13:09:30]    Submitted   : 0
+[2026-04-28 13:09:30]    Cumulative  : 40 rows (all-time)
+[2026-04-28 13:09:30]    Recipients  : ashutosh.sharma@wildnettechnologies.com
+[2026-04-28 13:09:30]    Status      : COMPLETED SUCCESSFULLY

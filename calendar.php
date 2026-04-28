@@ -136,11 +136,17 @@ $employee = $empObj->getEmployeeById($emp_id);
                                 initialView: 'dayGridMonth',
                                 height: '100%',
                                 events: <?php echo json_encode(array_map(function ($h) {
+                                    $color = '#ff8813'; // Default orange
+                                    if ($h['type'] === 'Public Holiday') $color = '#d9534f'; // Red
+                                    if ($h['type'] === 'Floater Leave') $color = '#5bc0de'; // Blue
+                                    if ($h['type'] === 'Week Off') $color = '#f0ad4e'; // Yellow/Orange
+                                    
                                     return [
-                                        'title' => $h['description'],
+                                        'title' => $h['description'] . ' (' . $h['type'] . ')',
                                         'start' => $h['date'],
-                                        'description' => $h['description'],
-                                        'type' => $h['type']
+                                        'backgroundColor' => $color,
+                                        'borderColor' => $color,
+                                        'allDay' => true
                                     ];
                                 }, $holidays)); ?>
                             });
