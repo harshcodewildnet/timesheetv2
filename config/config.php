@@ -18,3 +18,8 @@ function getClientLabel($dept_id = null): string
 {
     return (intval($dept_id) === 5) ? 'Project' : 'Client';
 }
+
+// Map department IDs to an array of CC email addresses for weekly summaries.
+define('DEPT_CC_EMAILS', [
+    5 => ['rm@yopmail.com', 'hod@yopmail.com', 'cc_email@yopmail.com'], // Replace with actual CC emails for Department 5
+]);

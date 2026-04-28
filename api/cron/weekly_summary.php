@@ -302,6 +302,20 @@ function generateWeeklySummary($conn, $task, $logFile, $reportStart, $reportEnd,
             try {
                 $mail = getMailer();
                 $mail->addAddress($recipient);
+                
+                // Add flexible CC emails from config based on department ID
+                if (!empty($departments) && defined('DEPT_CC_EMAILS')) {
+                    $currentDeptId = $departments[0];
+                    if (isset(DEPT_CC_EMAILS[$currentDeptId])) {
+                        foreach (DEPT_CC_EMAILS[$currentDeptId] as $ccEmail) {
+                            if (filter_var($ccEmail, FILTER_VALIDATE_EMAIL)) {
+                                $mail->addCC($ccEmail);
+                                logMsg("Adding CC: $ccEmail", $logFile);
+                            }
+                        }
+                    }
+                }
+
                 $mail->Subject = $subject;
                 $mail->Body = $emailHtml;
                 $mail->addAttachment($tempPath, $filename);
